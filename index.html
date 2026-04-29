@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shubham Sanadhya</title>
 
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
+
 body {
     margin: 0;
-    font-family: "Futura", "Segoe UI", sans-serif;
-    background: #0f0f0f;
+    font-family: 'Inter', sans-serif;
+    background: #0b0b0b;
     color: #eaeaea;
     overflow-x: hidden;
 }
@@ -19,94 +23,140 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Orbit background */
+/* Animated gradient glow */
+body::before {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+/* Orbit */
 .orbit {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 50%;
-    animation: rotate 20s linear infinite;
+    animation: spin 25s linear infinite;
 }
 
 .orbit::before {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #fff;
+    width: 12px;
+    height: 12px;
+    background: white;
     border-radius: 50%;
     top: 0;
     left: 50%;
 }
 
-@keyframes rotate {
+@keyframes spin {
     from { transform: rotate(0deg) translate(-50%, -50%); }
     to { transform: rotate(360deg) translate(-50%, -50%); }
 }
 
-/* Container */
+/* Layout */
 .container {
-    padding: 60px 10%;
+    padding: 80px 10%;
+    max-width: 1100px;
+    margin: auto;
 }
 
-/* Head */
 h1 {
-    font-size: 42px;
-    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    margin-bottom: 10px;
 }
 
 .subtitle {
     opacity: 0.6;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-/* Card */
+/* Cards */
 .card {
-    background: #1a1a1a;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    transition: 0.3s;
+    background: rgba(255,255,255,0.03);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    background: #222;
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.06);
+}
+
+/* Section titles */
+.card h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+/* List */
+ul {
+    padding-left: 18px;
+}
+
+li {
+    margin-bottom: 8px;
 }
 
 /* Stats */
 .stats {
     display: flex;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 25px;
+    flex-wrap: wrap;
 }
 
 .stat {
     flex: 1;
-    background: #181818;
+    min-width: 120px;
+    background: rgba(255,255,255,0.04);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
 }
 
-.stat h2 {
-    margin: 0;
+.stat h3 {
     font-size: 28px;
+    margin: 0;
 }
 
 .stat p {
+    font-size: 14px;
     opacity: 0.6;
 }
 
-/* Touch glow */
-.card:active {
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+/* Fade animation */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards;
 }
-</style>
 
+.fade:nth-child(2) { animation-delay: 0.2s; }
+.fade:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -115,53 +165,70 @@ h1 {
 
 <div class="container">
 
-    <h1>Shubham Sanadhya</h1>
-    <p class="subtitle">Quality • Food Safety • Regulatory • Continuous Improvement</p>
+    <h1 class="fade">Shubham Sanadhya</h1>
+    <p class="subtitle fade">Quality • Food Safety • Regulatory • Continuous Improvement</p>
 
-    <!-- Givaudan -->
-    <div class="card">
+    <!-- GIVAUDAN -->
+    <div class="card fade">
         <h2>Givaudan India Pvt. Ltd.</h2>
         <p><i>Quality Management Executive (QMS)</i></p>
+
         <ul>
-            <li>Driving site-wide QMS, regulatory compliance & audit readiness</li>
-            <li>Managing FSSAI, FSSC 22000, Halal & Kosher audits</li>
-            <li>Leading CAPA systems & root cause analysis for compliance gaps</li>
-            <li>Handling labeling validation, allergen checks & regulatory documentation</li>
-            <li>Driving digital quality systems & compliance dashboards</li>
+            <li>Driving site-wide Quality Governance, QMS & Food Safety systems aligned with regulatory standards</li>
+            <li>Executing compliance reviews for formulations and raw materials ensuring FSSAI & labeling alignment</li>
+            <li>Managing regulatory documentation, product dossiers & customer submissions with high accuracy</li>
+            <li>Leading label verification including allergen declarations and claims validation</li>
+            <li>Handling certification audits (FSSC 22000, Halal, Kosher) and ensuring audit readiness</li>
+            <li>Managing customer & third-party audits with effective CAPA closure systems</li>
+            <li>Driving root cause analysis (RCA) & continuous improvement initiatives for quality systems</li>
+            <li>Implementing digital dashboards & inspection digitization for compliance tracking</li>
+            <li>Strengthening traceability systems, mock recalls & hazard communication processes</li>
+            <li>Conducting supplier/vendor audits ensuring end-to-end quality compliance</li>
         </ul>
     </div>
 
-    <!-- Mars -->
-    <div class="card">
+    <!-- MARS -->
+    <div class="card fade">
         <h2>Mars International India Pvt. Ltd.</h2>
         <p><i>Quality & Food Safety – Executive Analytics</i></p>
+
         <ul>
-            <li>Managed microbiological & analytical testing (PCR, HPLC, ELISA, NIR)</li>
-            <li>Achieved 97%+ lab service levels & timely product release</li>
-            <li>Led environmental monitoring trend analysis (FSSC 22000 aligned)</li>
-            <li>Handled customer complaints & RCA-driven packaging improvements</li>
-            <li>Executed vendor quality control & packaging material inspections</li>
+            <li>Performed microbiological testing (Salmonella, EB, Y&M, E.coli) using PCR & Petri film methods</li>
+            <li>Maintained >95% service level for product release within defined TAT</li>
+            <li>Executed RM & FG analysis using HPLC, ELISA, GC & NIR ensuring global compliance</li>
+            <li>Led environmental monitoring trend analysis aligned with FSSC 22000 standards</li>
+            <li>Managed customer complaints & drove RCA-based packaging improvements</li>
+            <li>Handled SAP-based material release, hold & rejection workflows</li>
+            <li>Managed external lab services ensuring 97% SLA adherence</li>
+            <li>Supported regulatory reporting for import permits and product development</li>
+            <li>Executed shelf-life studies with failsafe pull-out mechanisms</li>
+            <li>Ensured audit readiness (ISO 22000, HACCP, FSSC, LRQA)</li>
         </ul>
     </div>
 
-    <!-- Impact -->
-    <div class="card">
+    <!-- IMPACT -->
+    <div class="card fade">
         <h2>Impact & Achievements</h2>
 
         <div class="stats">
             <div class="stat">
-                <h2>10+</h2>
-                <p>Audits Managed</p>
+                <h3>10+</h3>
+                <p>Audits Led</p>
             </div>
 
             <div class="stat">
-                <h2>30+</h2>
-                <p>Projects & CAPAs</p>
+                <h3>30+</h3>
+                <p>CAPA / Projects</p>
             </div>
 
             <div class="stat">
-                <h2>97%</h2>
+                <h3>97%</h3>
                 <p>Service Level</p>
+            </div>
+
+            <div class="stat">
+                <h3>5–10%</h3>
+                <p>Efficiency Gain</p>
             </div>
         </div>
     </div>
