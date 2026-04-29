@@ -6,7 +6,7 @@
 
 <title>Shubham Sanadhya</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,43 +15,54 @@ body {
     font-family: 'Inter', sans-serif;
     background: #f4f6f5;
     color: #2f3e34;
-    overflow-x: hidden;
 }
 
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Organic blob background */
-.blob {
+/* GRID */
+body::before {
+    content: "";
     position: fixed;
-    width: 500px;
-    height: 500px;
-    background: #dbe7e4;
-    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
-    top: 10%;
-    left: 60%;
-    animation: morph 10s infinite ease-in-out;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(107,143,113,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(107,143,113,0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+}
+
+/* PULSE */
+body::after {
+    content: "";
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(107,143,113,0.2), transparent 70%);
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulse 4s infinite ease-in-out;
     z-index: -1;
 }
 
-@keyframes morph {
-    0% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; }
-    50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
-    100% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; }
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(0.8); opacity: 0.3; }
+    50% { transform: translateX(-50%) scale(1.2); opacity: 0.6; }
+    100% { transform: translateX(-50%) scale(0.8); opacity: 0.3; }
 }
 
 /* Layout */
 .container {
-    padding: 80px 10%;
+    padding: 70px 10%;
     max-width: 1100px;
     margin: auto;
 }
 
-/* Heading */
+/* Headings */
+h1, h2 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 h1 {
-    font-family: 'Poppins', sans-serif;
     font-size: 48px;
 }
 
@@ -63,15 +74,31 @@ h1 {
 /* Cards */
 .card {
     background: #ffffff;
-    padding: 30px;
+    padding: 35px;
     margin-bottom: 30px;
-    border-radius: 16px;
+    border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
 
 .card:hover {
     transform: translateY(-6px);
+}
+
+/* Role */
+.role {
+    color: #6b8f71;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
 }
 
 /* Stats */
@@ -83,33 +110,36 @@ h1 {
 
 .stat {
     flex: 1;
-    min-width: 120px;
-    background: #f0f4f3;
+    min-width: 140px;
+    background: #eef3f1;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 10px;
     text-align: center;
 }
 
 .stat h3 {
     color: #6b8f71;
-    font-size: 26px;
+    margin: 0;
 }
 
-/* Fade */
-.fade {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
+/* CTA */
+.cta {
+    text-align: center;
+    margin-top: 40px;
 }
 
-.fade:nth-child(2){animation-delay:0.2s;}
-.fade:nth-child(3){animation-delay:0.4s;}
+.cta a {
+    text-decoration: none;
+    color: white;
+    background: #6b8f71;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 5px;
+    display: inline-block;
+}
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.cta a:hover {
+    background: #5a7c61;
 }
 
 </style>
@@ -117,36 +147,54 @@ h1 {
 
 <body>
 
-<div class="blob"></div>
-
 <div class="container">
 
-<h1 class="fade">Shubham Sanadhya</h1>
-<p class="subtitle fade">Quality • Food Safety • Regulatory • Continuous Improvement</p>
+<h1>Shubham Sanadhya</h1>
+<p class="subtitle">Quality • Food Safety • Regulatory • Continuous Improvement</p>
 
-<div class="card fade">
+<!-- GIVAUDAN -->
+<div class="card">
 <h2>Givaudan India Pvt. Ltd.</h2>
+<p class="role">Quality Management Executive (QMS)</p>
 <ul>
-<li>Driving QMS, regulatory compliance, audit readiness</li>
-<li>Managing FSSC, Halal, Kosher audits</li>
-<li>Leading CAPA, RCA systems</li>
-<li>Handling labeling & documentation</li>
-<li>Supplier & vendor audits</li>
+<li>Led site-wide QMS and Food Safety systems ensuring compliance with FSSAI, FSSC 22000, Halal & Kosher standards</li>
+<li>Managed 10+ audits including certification and customer audits with 100% compliance readiness</li>
+<li>Executed formulation and RM compliance reviews ensuring regulatory and labeling accuracy</li>
+<li>Handled product dossiers, regulatory documentation, and customer submissions within timelines</li>
+<li>Strengthened CAPA systems using RCA tools ensuring effective issue closure and prevention</li>
+<li>Digitized inspection systems and dashboards improving compliance visibility</li>
+<li>Enhanced traceability, mock recall readiness, and allergen management systems</li>
+<li>Conducted supplier audits and ensured vendor compliance across supply chain</li>
 </ul>
 </div>
 
-<div class="card fade">
+<!-- MARS -->
+<div class="card">
 <h2>Mars International India Pvt. Ltd.</h2>
+<p class="role">Quality & Food Safety – Executive Analytics</p>
 <ul>
-<li>Microbiological & analytical testing (PCR, HPLC, ELISA)</li>
-<li>97% service level achievement</li>
-<li>Environmental monitoring & trend analysis</li>
-<li>Customer complaint RCA & packaging improvements</li>
-<li>Shelf-life studies & audit readiness</li>
+<li>Achieved 97%+ service level in microbiological and analytical testing ensuring timely product release</li>
+<li>Performed PCR-based pathogen testing and environmental monitoring aligned with FSSC 22000</li>
+<li>Executed HPLC, ELISA, GC, NIR testing ensuring global quality compliance</li>
+<li>Led complaint RCA using CPM scoring and improved packaging performance</li>
+<li>Managed SAP-based release workflows ensuring compliance and traceability</li>
+<li>Conducted shelf-life studies and regulatory reporting for product approvals</li>
+<li>Ensured audit readiness for ISO 22000, HACCP, FSSC, LRQA audits</li>
 </ul>
 </div>
 
-<div class="card fade">
+<!-- PROJECTS -->
+<div class="card">
+<h2>Key Projects</h2>
+<ul>
+<li>Reduced rework generation by ~20% using DMAIC and real-time data tracking systems</li>
+<li>Developed environmental monitoring dashboard improving trend visibility and decision making</li>
+<li>Standardized CAPA and RCA frameworks improving audit performance and issue closure efficiency</li>
+</ul>
+</div>
+
+<!-- IMPACT -->
+<div class="card">
 <h2>Impact</h2>
 <div class="stats">
 <div class="stat"><h3>10+</h3><p>Audits</p></div>
@@ -154,6 +202,13 @@ h1 {
 <div class="stat"><h3>97%</h3><p>SLA</p></div>
 <div class="stat"><h3>5–10%</h3><p>Efficiency</p></div>
 </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+<a href="mailto:sanadhyashubham@gmail.com">Email</a>
+<a href="#">LinkedIn</a>
+<a href="#">Download Resume</a>
 </div>
 
 </div>
